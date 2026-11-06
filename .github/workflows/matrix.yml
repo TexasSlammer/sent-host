@@ -1,0 +1,41 @@
+name: matrix
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 1 * *"  # monthly re-run to catch client drift
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Sanity checks
+        run: pytest -q
+
+      - name: Run the matrix
+        run: python -m senthost.matrix
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: results/
+
+      - name: Drift check
+        run: |
+          if ! git diff --exit-code -- results/; then
+            echo "::error::Client wire behavior changed against the committed results. Review the diff under results/, confirm the new behavior is genuine, and commit it as a reviewed change."
+            exit 1
+          fi

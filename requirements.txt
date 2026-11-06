@@ -1,0 +1,10 @@
+httpx>=0.28
+requests>=2.32
+urllib3>=2.2
+aiohttp>=3.10
+yarl>=1.17
+uvicorn>=0.30
+starlette>=0.40
+h11>=0.14
+playwright>=1.49
+pytest>=8.0

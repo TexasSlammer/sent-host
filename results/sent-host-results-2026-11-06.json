@@ -1,0 +1,2546 @@
+{
+  "generated": "2026-11-06T00:29:05.506378+00:00",
+  "environment": {
+    "python": "3.12.16",
+    "httpx": "0.28.1",
+    "requests": "2.32.5",
+    "aiohttp": "3.13.3",
+    "uvicorn": "0.44.0",
+    "starlette": "0.50.0",
+    "h11": "0.16.0",
+    "playwright": "1.57.0",
+    "urllib3": "2.6.3",
+    "yarl": "1.23.0",
+    "curl": "curl 8.14.1 (x86_64-pc-linux-gnu) libcurl/8.14.1 OpenSSL/3.5.7 zlib/1.3.1 brotli/1.1.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.64.0 nghttp3/1.8.0 librtmp/2.3 OpenLDAP/2.6.10",
+    "node": "v24.22.2",
+    "ipv6_server": true
+  },
+  "isolation": "Python clients run under a process-local getaddrinfo override that pins every hostname to loopback, with IP literals passed through untouched. aiohttp is pinned to its ThreadedResolver so it cannot escape through a c-ares resolver. curl runs with --resolve entries for every spelling of each hostname. Node and Chromium only fetch URLs whose parsed host is exactly localhost, 127.0.0.1 or ::1, and Chromium aborts every request that would leave the machine before a packet is sent. No external traffic.",
+  "rows": [
+    {
+      "client": "httpx",
+      "case": "H01",
+      "mode": "url",
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H01-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H02",
+      "mode": "url",
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H02-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H03",
+      "mode": "override",
+      "client_parse": null,
+      "status": 200,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H03-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H04",
+      "mode": "url",
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "status": 200,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H04-httpx",
+        "authorization": "Basic dXNlcjpwYXNz"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H05",
+      "mode": "url",
+      "client_parse": {
+        "host": "evil.com",
+        "port": 8321,
+        "userinfo": true
+      },
+      "status": 200,
+      "sent_host": "evil.com:8321",
+      "server_headers": {
+        "host": "evil.com:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H05-httpx",
+        "authorization": "Basic bG9jYWxob3N0Og=="
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H06",
+      "mode": "url",
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "status": 200,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H06-httpx",
+        "authorization": "Basic dXNlckBldmlsLmNvbTo="
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H07",
+      "mode": "override",
+      "client_parse": null,
+      "status": 200,
+      "sent_host": "localhost:@evil.com",
+      "server_headers": {
+        "host": "localhost:@evil.com",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H07-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H08",
+      "mode": "override",
+      "client_parse": null,
+      "status": 200,
+      "sent_host": "localhost:0@evil.com",
+      "server_headers": {
+        "host": "localhost:0@evil.com",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H08-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H09",
+      "mode": "url",
+      "client_error": "InvalidURL: Invalid IPv4 address: '0177.0.0.1'"
+    },
+    {
+      "client": "httpx",
+      "case": "H10",
+      "mode": "url",
+      "client_parse": {
+        "host": "2130706433",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "2130706433:8321",
+      "server_headers": {
+        "host": "2130706433:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H10-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H11",
+      "mode": "url",
+      "client_parse": {
+        "host": "127.1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "127.1:8321",
+      "server_headers": {
+        "host": "127.1:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H11-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H12",
+      "mode": "url",
+      "client_parse": {
+        "host": "localhost.",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "localhost.:8321",
+      "server_headers": {
+        "host": "localhost.:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H12-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H13",
+      "mode": "url",
+      "client_parse": {
+        "host": "%6cocalhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "%6cocalhost:8321",
+      "server_headers": {
+        "host": "%6cocalhost:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H13-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H14",
+      "mode": "url",
+      "client_parse": {
+        "host": "löcalhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "xn--lcalhost-n4a:8321",
+      "server_headers": {
+        "host": "xn--lcalhost-n4a:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H14-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H15",
+      "mode": "url",
+      "client_parse": {
+        "host": "under_score",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "under_score:8321",
+      "server_headers": {
+        "host": "under_score:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H15-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H16",
+      "mode": "url",
+      "client_parse": {
+        "host": "::1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "status": 200,
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "host": "[::1]:8321",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H16-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H17",
+      "mode": "url",
+      "client_error": "ConnectError: [Errno -2] Name or service not known"
+    },
+    {
+      "client": "httpx",
+      "case": "H18",
+      "mode": "url",
+      "client_error": "ConnectError: [Errno 111] Connection refused"
+    },
+    {
+      "client": "httpx",
+      "case": "H19",
+      "mode": "url",
+      "client_error": "ConnectError: [Errno 111] Connection refused"
+    },
+    {
+      "client": "httpx",
+      "case": "H20",
+      "mode": "url",
+      "client_error": "OverflowError: connect(): port must be 0-65535."
+    },
+    {
+      "client": "httpx",
+      "case": "H21",
+      "mode": "url",
+      "client_error": "ConnectError: [Errno 111] Connection refused"
+    },
+    {
+      "client": "httpx",
+      "case": "H22",
+      "mode": "override",
+      "client_error": "LocalProtocolError: Illegal header value b'localhost '"
+    },
+    {
+      "client": "httpx",
+      "case": "H23",
+      "mode": "override",
+      "client_parse": null,
+      "status": 500,
+      "sent_host": "localhost:abc",
+      "server_headers": {
+        "host": "localhost:abc",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H23-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H24",
+      "mode": "override",
+      "client_error": "LocalProtocolError: Illegal header value b'localhost\\r\\nX-Injected: yes'"
+    },
+    {
+      "client": "httpx",
+      "case": "H25",
+      "mode": "override",
+      "client_parse": null,
+      "status": 200,
+      "sent_host": "",
+      "server_headers": {
+        "host": "",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "user-agent": "python-httpx/0.28.1",
+        "x-case-id": "H25-httpx"
+      }
+    },
+    {
+      "client": "httpx",
+      "case": "H26",
+      "mode": "override",
+      "client_error": "UnicodeEncodeError: 'ascii' codec can't encode characters in position 10-13: ordinal not in range(128)"
+    },
+    {
+      "client": "requests",
+      "case": "H01",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H01-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H02",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H02-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H03",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "host": "localhost:8321",
+        "x-case-id": "H03-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H04",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H04-requests",
+        "authorization": "Basic dXNlcjpwYXNz"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H05",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "evil.com",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "evil.com:8321",
+      "server_headers": {
+        "host": "evil.com:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H05-requests",
+        "authorization": "Basic bG9jYWxob3N0Og=="
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H06",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H06-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H07",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:@evil.com",
+      "server_headers": {
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "host": "localhost:@evil.com",
+        "x-case-id": "H07-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H08",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:0@evil.com",
+      "server_headers": {
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "host": "localhost:0@evil.com",
+        "x-case-id": "H08-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H09",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "0177.0.0.1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "0177.0.0.1:8321",
+      "server_headers": {
+        "host": "0177.0.0.1:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H09-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H10",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "2130706433",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "2130706433:8321",
+      "server_headers": {
+        "host": "2130706433:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H10-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H11",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "127.1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "127.1:8321",
+      "server_headers": {
+        "host": "127.1:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H11-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H12",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost.",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H12-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H13",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "%6cocalhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H13-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H14",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "xn--lcalhost-n4a",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "xn--lcalhost-n4a:8321",
+      "server_headers": {
+        "host": "xn--lcalhost-n4a:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H14-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H15",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "under_score",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "under_score:8321",
+      "server_headers": {
+        "host": "under_score:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H15-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H16",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "[::1]",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "host": "[::1]:8321",
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "x-case-id": "H16-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H17",
+      "mode": "url",
+      "client_error": "ConnectionError: HTTPConnectionPool(host='::1%25lo', port=8321): Max retries exceeded with url: /h17 (Caused by NameResolutionError(\"HTTPConnection(host='::1%25lo', port=8321): Fai"
+    },
+    {
+      "client": "requests",
+      "case": "H18",
+      "mode": "url",
+      "client_error": "ConnectionError: HTTPConnectionPool(host='localhost', port=80): Max retries exceeded with url: /h18 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=80): Failed"
+    },
+    {
+      "client": "requests",
+      "case": "H19",
+      "mode": "url",
+      "client_error": "ConnectionError: HTTPConnectionPool(host='localhost', port=80): Max retries exceeded with url: /h19 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=80): Failed"
+    },
+    {
+      "client": "requests",
+      "case": "H20",
+      "mode": "url",
+      "client_parse": null,
+      "client_error": "parse_url refused: Failed to parse: http://localhost:99999/h20"
+    },
+    {
+      "client": "requests",
+      "case": "H21",
+      "mode": "url",
+      "client_parse": null,
+      "client_error": "parse_url refused: Failed to parse: http://localhost:۸۰۸۰/h21"
+    },
+    {
+      "client": "requests",
+      "case": "H22",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost",
+      "server_headers": {
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "host": "localhost",
+        "x-case-id": "H22-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H23",
+      "mode": "override",
+      "status": 500,
+      "client_parse": null,
+      "sent_host": "localhost:abc",
+      "server_headers": {
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "host": "localhost:abc",
+        "x-case-id": "H23-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H24",
+      "mode": "override",
+      "client_error": "InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'localhost\\r\\nX-Injected: yes'"
+    },
+    {
+      "client": "requests",
+      "case": "H25",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "",
+      "server_headers": {
+        "user-agent": "python-requests/2.32.5",
+        "accept-encoding": "gzip, deflate, br",
+        "accept": "*/*",
+        "connection": "keep-alive",
+        "host": "",
+        "x-case-id": "H25-requests"
+      }
+    },
+    {
+      "client": "requests",
+      "case": "H26",
+      "mode": "override",
+      "client_error": "UnicodeEncodeError: 'latin-1' codec can't encode characters in position 10-13: ordinal not in range(256)"
+    },
+    {
+      "client": "aiohttp",
+      "case": "H01",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "x-case-id": "H01-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H02",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "x-case-id": "H02-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H03",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "x-case-id": "H03-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H04",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "x-case-id": "H04-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "authorization": "Basic dXNlcjpwYXNz"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H05",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "evil.com",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "evil.com:8321",
+      "server_headers": {
+        "host": "evil.com:8321",
+        "x-case-id": "H05-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "authorization": "Basic bG9jYWxob3N0Og=="
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H06",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "x-case-id": "H06-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br",
+        "authorization": "Basic dXNlckBldmlsLmNvbTo="
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H07",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:@evil.com",
+      "server_headers": {
+        "host": "localhost:@evil.com",
+        "x-case-id": "H07-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H08",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:0@evil.com",
+      "server_headers": {
+        "host": "localhost:0@evil.com",
+        "x-case-id": "H08-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H09",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "0177.0.0.1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "0177.0.0.1:8321",
+      "server_headers": {
+        "host": "0177.0.0.1:8321",
+        "x-case-id": "H09-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H10",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "2130706433",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "2130706433:8321",
+      "server_headers": {
+        "host": "2130706433:8321",
+        "x-case-id": "H10-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H11",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "127.1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "127.1:8321",
+      "server_headers": {
+        "host": "127.1:8321",
+        "x-case-id": "H11-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H12",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost.",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "x-case-id": "H12-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H13",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "%6cocalhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "%6cocalhost:8321",
+      "server_headers": {
+        "host": "%6cocalhost:8321",
+        "x-case-id": "H13-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H14",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "löcalhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "xn--lcalhost-n4a:8321",
+      "server_headers": {
+        "host": "xn--lcalhost-n4a:8321",
+        "x-case-id": "H14-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H15",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "under_score",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "under_score:8321",
+      "server_headers": {
+        "host": "under_score:8321",
+        "x-case-id": "H15-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H16",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "::1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "host": "[::1]:8321",
+        "x-case-id": "H16-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H17",
+      "mode": "url",
+      "client_error": "ClientConnectorError: Cannot connect to host ::1%25lo:8321 ssl:default [Name or service not known]"
+    },
+    {
+      "client": "aiohttp",
+      "case": "H18",
+      "mode": "url",
+      "client_error": "ClientConnectorError: Cannot connect to host localhost:80 ssl:default [Connect call failed ('127.0.0.1', 80)]"
+    },
+    {
+      "client": "aiohttp",
+      "case": "H19",
+      "mode": "url",
+      "client_error": "ClientConnectorError: Cannot connect to host localhost:0 ssl:default [Connect call failed ('127.0.0.1', 0)]"
+    },
+    {
+      "client": "aiohttp",
+      "case": "H20",
+      "mode": "url",
+      "client_parse": null,
+      "client_error": "yarl refused: Port out of range 0-65535"
+    },
+    {
+      "client": "aiohttp",
+      "case": "H21",
+      "mode": "url",
+      "client_error": "ClientConnectorError: Cannot connect to host localhost:8080 ssl:default [Connect call failed ('127.0.0.1', 8080)]"
+    },
+    {
+      "client": "aiohttp",
+      "case": "H22",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost",
+      "server_headers": {
+        "host": "localhost",
+        "x-case-id": "H22-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H23",
+      "mode": "override",
+      "status": 500,
+      "client_parse": null,
+      "sent_host": "localhost:abc",
+      "server_headers": {
+        "host": "localhost:abc",
+        "x-case-id": "H23-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H24",
+      "mode": "override",
+      "client_error": "ValueError: Newline or carriage return detected in headers. Potential header injection attack."
+    },
+    {
+      "client": "aiohttp",
+      "case": "H25",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "",
+      "server_headers": {
+        "host": "",
+        "x-case-id": "H25-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "aiohttp",
+      "case": "H26",
+      "mode": "override",
+      "status": 500,
+      "client_parse": null,
+      "sent_host": "localhost:Û¸Û°Û¸Û°",
+      "server_headers": {
+        "host": "localhost:Û¸Û°Û¸Û°",
+        "x-case-id": "H26-aiohttp",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H01",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "localhost:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H01-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H02",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "LOCALHOST:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "LOCALHOST:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H02-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H03",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "user-agent": "Python-urllib/3.12",
+        "host": "localhost:8321",
+        "x-case-id": "H03-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H04",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "user:pass@localhost:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "user:pass@localhost:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H04-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H05",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "evil.com",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "localhost:@evil.com:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "localhost:@evil.com:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H05-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H06",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost",
+        "port": 8321,
+        "userinfo": true
+      },
+      "sent_host": "user@evil.com@localhost:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "user@evil.com@localhost:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H06-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H07",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:@evil.com",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "user-agent": "Python-urllib/3.12",
+        "host": "localhost:@evil.com",
+        "x-case-id": "H07-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H08",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost:0@evil.com",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "user-agent": "Python-urllib/3.12",
+        "host": "localhost:0@evil.com",
+        "x-case-id": "H08-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H09",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "0177.0.0.1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "0177.0.0.1:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "0177.0.0.1:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H09-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H10",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "2130706433",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "2130706433:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "2130706433:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H10-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H11",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "127.1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "127.1:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "127.1:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H11-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H12",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "localhost.",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost.:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "localhost.:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H12-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H13",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "%6Cocalhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "localhost:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H13-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H14",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "löcalhost",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "löcalhost:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "löcalhost:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H14-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H15",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "under_score",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "under_score:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "under_score:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H15-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H16",
+      "mode": "url",
+      "status": 200,
+      "client_parse": {
+        "host": "::1",
+        "port": 8321,
+        "userinfo": false
+      },
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "host": "[::1]:8321",
+        "user-agent": "Python-urllib/3.12",
+        "x-case-id": "H16-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H17",
+      "mode": "url",
+      "client_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "client": "urllib",
+      "case": "H18",
+      "mode": "url",
+      "client_error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "client": "urllib",
+      "case": "H19",
+      "mode": "url",
+      "client_error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "client": "urllib",
+      "case": "H20",
+      "mode": "url",
+      "client_parse": null,
+      "client_error": "urlsplit refused: Port out of range 0-65535"
+    },
+    {
+      "client": "urllib",
+      "case": "H21",
+      "mode": "url",
+      "client_parse": null,
+      "client_error": "urlsplit refused: Port could not be cast to integer value as '۸۰۸۰'"
+    },
+    {
+      "client": "urllib",
+      "case": "H22",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "localhost",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "user-agent": "Python-urllib/3.12",
+        "host": "localhost",
+        "x-case-id": "H22-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H23",
+      "mode": "override",
+      "client_error": "HTTPError: HTTP Error 500: Internal Server Error",
+      "sent_host": "localhost:abc",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "user-agent": "Python-urllib/3.12",
+        "host": "localhost:abc",
+        "x-case-id": "H23-urllib",
+        "connection": "close"
+      },
+      "status": 500
+    },
+    {
+      "client": "urllib",
+      "case": "H24",
+      "mode": "override",
+      "client_error": "ValueError: Invalid header value b'localhost\\r\\nX-Injected: yes'"
+    },
+    {
+      "client": "urllib",
+      "case": "H25",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host": "",
+      "server_headers": {
+        "accept-encoding": "identity",
+        "user-agent": "Python-urllib/3.12",
+        "host": "",
+        "x-case-id": "H25-urllib",
+        "connection": "close"
+      }
+    },
+    {
+      "client": "urllib",
+      "case": "H26",
+      "mode": "override",
+      "client_error": "UnicodeEncodeError: 'latin-1' codec can't encode characters in position 10-13: ordinal not in range(256)"
+    },
+    {
+      "client": "curl",
+      "case": "H01",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost:8321",
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H01-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H02",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "LOCALHOST:8321",
+      "sent_host": "LOCALHOST:8321",
+      "server_headers": {
+        "host": "LOCALHOST:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H02-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H03",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost:8321",
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H03-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H04",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost:8321",
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "authorization": "Basic dXNlcjpwYXNz",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H04-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H05",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "evil.com:8321",
+      "sent_host": "evil.com:8321",
+      "server_headers": {
+        "host": "evil.com:8321",
+        "authorization": "Basic bG9jYWxob3N0Og==",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H05-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H06",
+      "mode": "url",
+      "status": null,
+      "client_parse": null,
+      "sent_host_local": null,
+      "client_error": "curl: (3) URL rejected: Bad hostname"
+    },
+    {
+      "client": "curl",
+      "case": "H07",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost:@evil.com",
+      "sent_host": "localhost:@evil.com",
+      "server_headers": {
+        "host": "localhost:@evil.com",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H07-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H08",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost:0@evil.com",
+      "sent_host": "localhost:0@evil.com",
+      "server_headers": {
+        "host": "localhost:0@evil.com",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H08-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H09",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "127.0.0.1:8321",
+      "sent_host": "127.0.0.1:8321",
+      "server_headers": {
+        "host": "127.0.0.1:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H09-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H10",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "127.0.0.1:8321",
+      "sent_host": "127.0.0.1:8321",
+      "server_headers": {
+        "host": "127.0.0.1:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H10-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H11",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "127.0.0.1:8321",
+      "sent_host": "127.0.0.1:8321",
+      "server_headers": {
+        "host": "127.0.0.1:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H11-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H12",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost.:8321",
+      "sent_host": "localhost.:8321",
+      "server_headers": {
+        "host": "localhost.:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H12-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H13",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost:8321",
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H13-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H14",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "xn--lcalhost-n4a:8321",
+      "sent_host": "xn--lcalhost-n4a:8321",
+      "server_headers": {
+        "host": "xn--lcalhost-n4a:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H14-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H15",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "under_score:8321",
+      "sent_host": "under_score:8321",
+      "server_headers": {
+        "host": "under_score:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H15-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H16",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "[::1]:8321",
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "host": "[::1]:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H16-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H17",
+      "mode": "url",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "[::1]:8321",
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "host": "[::1]:8321",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H17-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H18",
+      "mode": "url",
+      "status": null,
+      "client_parse": null,
+      "sent_host_local": null,
+      "client_error": "curl: (7) Failed to connect to localhost port 80 after 0 ms: Could not connect to server"
+    },
+    {
+      "client": "curl",
+      "case": "H19",
+      "mode": "url",
+      "status": null,
+      "client_parse": null,
+      "sent_host_local": null,
+      "client_error": "curl: (7) Failed to connect to localhost port 0 after 0 ms: Could not connect to server"
+    },
+    {
+      "client": "curl",
+      "case": "H20",
+      "mode": "url",
+      "status": null,
+      "client_parse": null,
+      "sent_host_local": null,
+      "client_error": "curl: (3) URL rejected: Port number was not a decimal number between 0 and 65535"
+    },
+    {
+      "client": "curl",
+      "case": "H21",
+      "mode": "url",
+      "status": null,
+      "client_parse": null,
+      "sent_host_local": null,
+      "client_error": "curl: (3) URL rejected: Port number was not a decimal number between 0 and 65535"
+    },
+    {
+      "client": "curl",
+      "case": "H22",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost",
+      "sent_host": "localhost",
+      "server_headers": {
+        "host": "localhost",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H22-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H23",
+      "mode": "override",
+      "status": 500,
+      "client_parse": null,
+      "sent_host_local": "localhost:abc",
+      "sent_host": "localhost:abc",
+      "server_headers": {
+        "host": "localhost:abc",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H23-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H24",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": "localhost",
+      "sent_host": "localhost",
+      "server_headers": {
+        "host": "localhost",
+        "x-injected": "yes",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H24-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H25",
+      "mode": "override",
+      "status": 200,
+      "client_parse": null,
+      "sent_host_local": null,
+      "sent_host": "",
+      "server_headers": {
+        "host": "",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H25-curl"
+      }
+    },
+    {
+      "client": "curl",
+      "case": "H26",
+      "mode": "override",
+      "status": 500,
+      "client_parse": null,
+      "sent_host_local": "localhost:۸۰۸۰",
+      "sent_host": "localhost:Û¸Û°Û¸Û°",
+      "server_headers": {
+        "host": "localhost:Û¸Û°Û¸Û°",
+        "user-agent": "curl/8.14.1",
+        "accept": "*/*",
+        "x-case-id": "H26-curl"
+      }
+    },
+    {
+      "client": "node",
+      "case": "H01",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost:8321",
+        "hostname": "localhost",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "status": 200,
+      "client_error": null,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "connection": "keep-alive",
+        "x-case-id": "H01-node",
+        "accept": "*/*",
+        "accept-language": "*",
+        "sec-fetch-mode": "cors",
+        "user-agent": "node",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "accept-encoding": "gzip, deflate"
+      }
+    },
+    {
+      "client": "node",
+      "case": "H02",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost:8321",
+        "hostname": "localhost",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "status": 200,
+      "client_error": null,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "connection": "keep-alive",
+        "x-case-id": "H02-node",
+        "accept": "*/*",
+        "accept-language": "*",
+        "sec-fetch-mode": "cors",
+        "user-agent": "node",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "accept-encoding": "gzip, deflate"
+      }
+    },
+    {
+      "client": "node",
+      "case": "H03",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "node",
+      "case": "H04",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost:8321",
+        "hostname": "localhost",
+        "port": "8321",
+        "username": "user",
+        "password": "pass"
+      },
+      "status": null,
+      "client_error": "Request cannot be constructed from a URL that includes credentials: http://user:pass@localhost:8321/h04"
+    },
+    {
+      "client": "node",
+      "case": "H05",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "evil.com:8321",
+        "hostname": "evil.com",
+        "port": "8321",
+        "username": "localhost",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H06",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost:8321",
+        "hostname": "localhost",
+        "port": "8321",
+        "username": "user%40evil.com",
+        "password": ""
+      },
+      "status": null,
+      "client_error": "Request cannot be constructed from a URL that includes credentials: http://user@evil.com@localhost:8321/h06"
+    },
+    {
+      "client": "node",
+      "case": "H07",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "node",
+      "case": "H08",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "node",
+      "case": "H09",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "127.0.0.1:8321",
+        "hostname": "127.0.0.1",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H10",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "127.0.0.1:8321",
+        "hostname": "127.0.0.1",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H11",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "127.0.0.1:8321",
+        "hostname": "127.0.0.1",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H12",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost.:8321",
+        "hostname": "localhost.",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H13",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost:8321",
+        "hostname": "localhost",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H14",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "xn--lcalhost-n4a:8321",
+        "hostname": "xn--lcalhost-n4a",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H15",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "under_score:8321",
+        "hostname": "under_score",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H16",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "[::1]:8321",
+        "hostname": "[::1]",
+        "port": "8321",
+        "username": "",
+        "password": ""
+      },
+      "status": 200,
+      "client_error": null,
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "host": "[::1]:8321",
+        "connection": "keep-alive",
+        "x-case-id": "H16-node",
+        "accept": "*/*",
+        "accept-language": "*",
+        "sec-fetch-mode": "cors",
+        "user-agent": "node",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "accept-encoding": "gzip, deflate"
+      }
+    },
+    {
+      "client": "node",
+      "case": "H17",
+      "mode": "url",
+      "client_error": "URL parse threw: Invalid URL",
+      "client_parse": null
+    },
+    {
+      "client": "node",
+      "case": "H18",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost",
+        "hostname": "localhost",
+        "port": "",
+        "username": "",
+        "password": ""
+      },
+      "status": null,
+      "client_error": "fetch failed"
+    },
+    {
+      "client": "node",
+      "case": "H19",
+      "mode": "url",
+      "client_parse": {
+        "ok": true,
+        "host": "localhost:0",
+        "hostname": "localhost",
+        "port": "0",
+        "username": "",
+        "password": ""
+      },
+      "skipped": "fetch skipped by isolation policy (host outside the loopback set)"
+    },
+    {
+      "client": "node",
+      "case": "H20",
+      "mode": "url",
+      "client_error": "URL parse threw: Invalid URL",
+      "client_parse": null
+    },
+    {
+      "client": "node",
+      "case": "H21",
+      "mode": "url",
+      "client_error": "URL parse threw: Invalid URL",
+      "client_parse": null
+    },
+    {
+      "client": "node",
+      "case": "H22",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "node",
+      "case": "H23",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "node",
+      "case": "H24",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "node",
+      "case": "H25",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "node",
+      "case": "H26",
+      "mode": "override",
+      "skipped": "node does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H03",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H07",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H08",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H22",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H23",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H24",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H25",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H26",
+      "mode": "override",
+      "skipped": "chromium does not support this delivery mode"
+    },
+    {
+      "client": "chromium",
+      "case": "H01",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": true,
+      "status": 0,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "accept": "*/*",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:9999/",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9"
+      }
+    },
+    {
+      "client": "chromium",
+      "case": "H02",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": true,
+      "status": 0,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "accept": "*/*",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:9999/",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9"
+      }
+    },
+    {
+      "client": "chromium",
+      "case": "H04",
+      "mode": "url",
+      "client_error": "fetch-error: Failed to execute 'fetch' on 'Window': Request cannot be constructed from a URL that inclu"
+    },
+    {
+      "client": "chromium",
+      "case": "H05",
+      "mode": "url",
+      "client_error": "fetch-error: Failed to execute 'fetch' on 'Window': Request cannot be constructed from a URL that inclu"
+    },
+    {
+      "client": "chromium",
+      "case": "H06",
+      "mode": "url",
+      "client_error": "fetch-error: Failed to execute 'fetch' on 'Window': Request cannot be constructed from a URL that inclu"
+    },
+    {
+      "client": "chromium",
+      "case": "H09",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": true,
+      "status": 0,
+      "sent_host": "127.0.0.1:8321",
+      "server_headers": {
+        "host": "127.0.0.1:8321",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "accept": "*/*",
+        "sec-fetch-site": "same-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:9999/",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9"
+      }
+    },
+    {
+      "client": "chromium",
+      "case": "H10",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": true,
+      "status": 0,
+      "sent_host": "127.0.0.1:8321",
+      "server_headers": {
+        "host": "127.0.0.1:8321",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "accept": "*/*",
+        "sec-fetch-site": "same-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:9999/",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9"
+      }
+    },
+    {
+      "client": "chromium",
+      "case": "H11",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": true,
+      "status": 0,
+      "sent_host": "127.0.0.1:8321",
+      "server_headers": {
+        "host": "127.0.0.1:8321",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "accept": "*/*",
+        "sec-fetch-site": "same-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:9999/",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9"
+      }
+    },
+    {
+      "client": "chromium",
+      "case": "H12",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": false,
+      "client_error": "fetch-error: Failed to fetch"
+    },
+    {
+      "client": "chromium",
+      "case": "H13",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": true,
+      "status": 0,
+      "sent_host": "localhost:8321",
+      "server_headers": {
+        "host": "localhost:8321",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "accept": "*/*",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:9999/",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9"
+      }
+    },
+    {
+      "client": "chromium",
+      "case": "H14",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": false,
+      "client_error": "fetch-error: Failed to fetch"
+    },
+    {
+      "client": "chromium",
+      "case": "H15",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": false,
+      "client_error": "fetch-error: Failed to fetch"
+    },
+    {
+      "client": "chromium",
+      "case": "H16",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": true,
+      "status": 0,
+      "sent_host": "[::1]:8321",
+      "server_headers": {
+        "host": "[::1]:8321",
+        "connection": "keep-alive",
+        "pragma": "no-cache",
+        "cache-control": "no-cache",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+        "sec-ch-ua-mobile": "?0",
+        "accept": "*/*",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://127.0.0.1:9999/",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9"
+      }
+    },
+    {
+      "client": "chromium",
+      "case": "H17",
+      "mode": "url",
+      "client_error": "fetch-error: Failed to execute 'fetch' on 'Window': Failed to parse URL from http://[::1%25lo]:8321/h17"
+    },
+    {
+      "client": "chromium",
+      "case": "H18",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": false,
+      "client_error": "fetch-error: Failed to fetch"
+    },
+    {
+      "client": "chromium",
+      "case": "H19",
+      "mode": "url",
+      "prepared_host": null,
+      "forwarded": false,
+      "client_error": "fetch-error: Failed to fetch"
+    },
+    {
+      "client": "chromium",
+      "case": "H20",
+      "mode": "url",
+      "client_error": "fetch-error: Failed to execute 'fetch' on 'Window': Failed to parse URL from http://localhost:99999/h20"
+    },
+    {
+      "client": "chromium",
+      "case": "H21",
+      "mode": "url",
+      "client_error": "fetch-error: Failed to execute 'fetch' on 'Window': Failed to parse URL from http://localhost:۸۰۸۰/h21"
+    }
+  ]
+}
